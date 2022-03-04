@@ -9,15 +9,10 @@ app.get("/", (req, res) => {
   res.send('Hello World')
 })
 
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "http://127.0.0.1:3030");
-//   next();
-// })
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
+  res.header("Access-Control-Allow-Origin", "*");
   next();
 })
-
 
 app.use(
   cookieParser(process.env.COOKIE_SECRET, { sameSite: "none", secure: true })
